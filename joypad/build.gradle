@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+ext {
+    nettyVersion = '4.1.58.Final'
+}
+
+dependencies {
+    implementation "io.netty:netty-all:$nettyVersion"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
