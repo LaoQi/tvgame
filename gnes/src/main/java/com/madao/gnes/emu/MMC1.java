@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 7/27/2016.

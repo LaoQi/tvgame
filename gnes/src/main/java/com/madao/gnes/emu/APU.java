@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 import com.madao.gnes.IAudioDevice;
 

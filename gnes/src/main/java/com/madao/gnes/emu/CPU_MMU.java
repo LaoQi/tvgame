@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 7/6/2016.
@@ -20,9 +20,9 @@ package com.madao.gnes.core;
 public class CPU_MMU {
     // Variables and objects
     int[] RAM;  // Internal memory
-    Cartridge cartridge;
+    com.madao.gnes.emu.Cartridge cartridge;
     PPU PPU;
-    APU APU;
+    com.madao.gnes.emu.APU APU;
     Controller controller;
     int openBus;    // Contains the last value placed on the bus
 
@@ -30,7 +30,7 @@ public class CPU_MMU {
 
     // Constructors
     // Add objects as needed
-    public CPU_MMU(Cartridge cartridge, PPU PPU, Controller controller, APU APU){
+    public CPU_MMU(Cartridge cartridge, PPU PPU, Controller controller, com.madao.gnes.emu.APU APU){
         this.cartridge = cartridge;
         RAM = new int[0x800];   // Initalize 2KB internal ram
         this.PPU = PPU;

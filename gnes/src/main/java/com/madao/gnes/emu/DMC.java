@@ -1,11 +1,11 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 8/13/2016.
  */
 public class DMC implements WaveChannel {
     // DMC members
-    private Cartridge cartridge;    // DMC DMA can only access cartridge space, so direct access to cart should suffice
+    private com.madao.gnes.emu.Cartridge cartridge;    // DMC DMA can only access cartridge space, so direct access to cart should suffice
     private boolean IRQ;
 
     // Registers

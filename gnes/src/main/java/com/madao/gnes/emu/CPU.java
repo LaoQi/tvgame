@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 7/6/2016.
@@ -8,7 +8,7 @@ package com.madao.gnes.core;
 
 public class CPU {
     // Classes arrays and variables
-    private final CPU_MMU MMU;
+    private final com.madao.gnes.emu.CPU_MMU MMU;
 
     // Registers
     private int reg_A = 0x00;      // Accumulator

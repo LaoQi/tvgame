@@ -1,1 +1,1 @@
-include 'desktop', 'android', 'core', 'gnes'
+include 'desktop', 'android', 'core', 'gnes', 'joypad'

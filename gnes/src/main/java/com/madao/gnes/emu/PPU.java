@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 //import com.badlogic.gdx.graphics.Pixmap;
 //import com.badlogic.gdx.graphics.Texture;

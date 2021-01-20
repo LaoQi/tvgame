@@ -1,9 +1,9 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 8/3/2016.
  */
-public class SquareWave implements WaveChannel{
+public class SquareWave implements WaveChannel {
     // Registers
     private boolean enabled;
     private int duty;

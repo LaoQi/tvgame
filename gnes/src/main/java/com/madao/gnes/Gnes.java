@@ -1,12 +1,12 @@
 package com.madao.gnes;
 
-import com.madao.gnes.core.APU;
-import com.madao.gnes.core.CPU;
-import com.madao.gnes.core.CPU_MMU;
-import com.madao.gnes.core.Cartridge;
-import com.madao.gnes.core.Controller;
-import com.madao.gnes.core.PPU;
-import com.madao.gnes.core.PPU_MMU;
+import com.madao.gnes.emu.APU;
+import com.madao.gnes.emu.CPU;
+import com.madao.gnes.emu.CPU_MMU;
+import com.madao.gnes.emu.Cartridge;
+import com.madao.gnes.emu.Controller;
+import com.madao.gnes.emu.PPU;
+import com.madao.gnes.emu.PPU_MMU;
 
 public class Gnes {
     // Emulator classes

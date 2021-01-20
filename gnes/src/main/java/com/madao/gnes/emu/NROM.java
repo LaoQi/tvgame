@@ -1,11 +1,12 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
- * Created by ghost_000 on 7/29/2016.
+ * Created by ghost_000 on 7/6/2016.
  */
 
-// Essentially NROM with a bankable CHR ROM
-public class CNROM extends Cartridge{
+// Processing and storing NES Roms
+
+public class NROM extends Cartridge {
     // Arrays classes and variables
     private byte[] PRG_ROM;
     private byte[] PRG_RAM;
@@ -17,13 +18,10 @@ public class CNROM extends Cartridge{
     private int PRGSize;
     private int CHRSize;
 
-    // One CHR Bank register
-    private int CHRBank = 0;
-
     // Contstrctor
-    public CNROM(byte[] romFile){
+    public NROM(byte[] romFile){
         // NROM Init
-        PRG_RAM = new byte[0x2000];  // PRG Ram isn't part of the spec, but homebrew could use it? (maybe?)
+        PRG_RAM = new byte[0x2000];  // Most NROM games don't use this, but some test roms do
         // Save flags
         flags6 = romFile[0x06];
         flags7 = romFile[0x07];
@@ -59,7 +57,7 @@ public class CNROM extends Cartridge{
     public int PRGRead(int address){
         int returnData = 0xFF;
         if (address >= 0x6000 && address <= 0x7FFF){
-            returnData = PRG_RAM[address & 0x1FFF];
+            returnData = PRG_RAM[address - 0x6000];
         }
         else if (address >= 0x8000 && address <= 0xFFFF){
             returnData = PRG_ROM[(address - 0x8000) & (PRGSize - 1)];
@@ -70,11 +68,12 @@ public class CNROM extends Cartridge{
     // Write(s)
     @Override
     public void PRGWrite(int address, int data){
+        // Since we're hard-coded to NROM for now, nothing is done on write except for ram.
         if (address >= 0x6000 && address <= 0x7FFF){
-            PRG_RAM[address & 0x1FFF] = (byte)data;
-        }
-        else if (address >= 0x8000){
-            CHRBank = data & 0x3;
+            PRG_RAM[address - 0x6000] = (byte)data;
+            if (address >= 0x6004 && data != 0x00){
+                System.out.printf("%c", data);
+            }
         }
     }
 
@@ -83,12 +82,11 @@ public class CNROM extends Cartridge{
     @Override
     public int CHRRead(int address){
         int returnData = 0xFF;
-        int CHRAddress = address|(CHRBank << 13);
         if (CHR_RAM == null) {
-            returnData = CHR_ROM[CHRAddress];
+            returnData = CHR_ROM[address];
         }
         else{
-            returnData = CHR_RAM[CHRAddress];
+            returnData = CHR_RAM[address];
         }
         return returnData;
     }
@@ -155,4 +153,3 @@ public class CNROM extends Cartridge{
         System.out.println();
     }
 }
-

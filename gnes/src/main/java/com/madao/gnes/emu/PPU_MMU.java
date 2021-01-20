@@ -1,4 +1,4 @@
-package com.madao.gnes.core;
+package com.madao.gnes.emu;
 
 /**
  * Created by ghost_000 on 7/11/2016.
@@ -24,7 +24,7 @@ public class PPU_MMU {
     int[] VRAM;
     int[] OAM;
     int[] paletteRAM;
-    Cartridge cartridge;
+    com.madao.gnes.emu.Cartridge cartridge;
 
     public PPU_MMU(Cartridge cartridge){
         this.cartridge = cartridge;
